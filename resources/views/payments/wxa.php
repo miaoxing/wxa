@@ -12,7 +12,7 @@ $view->layout();
     });
   } else {
     $.loading('show');
-    require(['//res.wx.qq.com/open/js/jweixin-1.3.2.js'], function (wx) {
+    require(['plugins/wechat/js/wx'], function (wx) {
       wx.miniProgram.navigateTo({
         url: $.appendUrl('/pages/payments/index', {payment: JSON.stringify(payment.js)})
       });
