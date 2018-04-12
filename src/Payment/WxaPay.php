@@ -30,9 +30,18 @@ class WxaPay extends WechatPayV3
     {
         $payment = parent::createPayData($order);
 
+        $this->event->trigger('beforeWxaPaySubmit', [$payment, $order]);
+
         return $this->view->render('@wxa/payments/wxa.php', [
             'order' => $order,
             'payment' => $payment,
         ]);
+    }
+
+    public function verifyNotify()
+    {
+        $result = parent::verifyNotify();
+        $this->event->trigger('afterWxPayVerify', [$result, $this]);
+        return $result;
     }
 }
