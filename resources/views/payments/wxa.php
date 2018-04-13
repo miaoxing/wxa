@@ -14,7 +14,10 @@ $view->layout();
     $.loading('show');
     require(['plugins/wechat/js/wx'], function (wx) {
       wx.miniProgram.navigateTo({
-        url: $.appendUrl('/pages/payments/index', {payment: JSON.stringify(payment.js)})
+        url: $.appendUrl('/pages/payments/index', {
+          payment: JSON.stringify(payment.js),
+          next: $.url('orders/%s', <?= $order['id'] ?>)
+        });
       });
     });
   }
