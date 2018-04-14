@@ -17,7 +17,7 @@ $view->layout();
         url: $.appendUrl('/pages/payments/index', {
           payment: JSON.stringify(payment.js),
           next: $.url('orders/%s', <?= $order['id'] ?>)
-        });
+        })
       });
     });
   }
