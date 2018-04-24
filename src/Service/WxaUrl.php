@@ -12,8 +12,6 @@ class WxaUrl extends BaseService
 {
     public function __invoke($url, $page = '/pages/index/index')
     {
-        return $this->url->append($page, [
-            'url' => $this->url->full($url)
-        ]);
+        return $this->url->append($page, ['url' => $url]);
     }
 }

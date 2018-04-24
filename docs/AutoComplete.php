@@ -4,7 +4,7 @@ namespace MiaoxingDoc\Wxa {
 
     /**
      * @property    \Miaoxing\Wxa\Service\WxaUrl $wxaUrl
-     * @method      mixed wxaUrl($url, $page = '')
+     * @method      string wxaUrl($url, $page = '')
      */
     class AutoComplete
     {
