@@ -13,7 +13,7 @@ class Auth extends \Miaoxing\Plugin\Middleware\Base
     {
         // TODO safeUrl
         if (isset($this->request['wxaOpenId'])) {
-            wei()->curUser->loginBy(['wechatOpenId' => $this->request['wxaOpenId'], ['isValid' => false]]);
+            wei()->curUser->loginBy(['wechatOpenId' => $this->request['wxaOpenId']], ['isValid' => false]);
         }
 
         return $next();
