@@ -21,6 +21,7 @@ class Wxa extends BaseController
 
         // 2. 创建用户并登录
         $data = isset($ret['unionid']) ? ['wechatUnionId' => $ret['unionid']] : [];
+        $data['isValid'] = false;
         wei()->curUser->loginBy(['wechatOpenId' => $ret['openid']], $data);
 
         return $ret;
