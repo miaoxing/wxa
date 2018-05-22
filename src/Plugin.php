@@ -30,4 +30,11 @@ class Plugin extends BasePlugin
             'class' => WxaPay::class,
         ];
     }
+
+    public function onBodyEnd()
+    {
+        if (wei()->share->getTitle()) {
+            $this->display();
+        }
+    }
 }
