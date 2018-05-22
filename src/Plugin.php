@@ -33,8 +33,9 @@ class Plugin extends BasePlugin
 
     public function onBodyEnd()
     {
-        if (wei()->share->getTitle()) {
-            $this->display();
+        if (!wei()->share->getImage()) {
+            wei()->share->setImage(wei()->setting('wechat.shareImage'));
         }
+        $this->display();
     }
 }
