@@ -11,11 +11,19 @@ class Auth extends \Miaoxing\Plugin\Middleware\Base
      */
     public function __invoke($next)
     {
-        // TODO safeUrl
-        if (isset($this->request['wxaOpenId'])) {
-            wei()->curUser->loginBy(['wechatOpenId' => $this->request['wxaOpenId']], ['isValid' => false]);
+        if (!isset($this->request['wxaOpenId'])) {
+            return $next();
         }
 
-        return $next();
+        wei()->curUser->loginBy(['wechatOpenId' => $this->request['wxaOpenId']], ['isValid' => false]);
+
+        $removeKeys = ['wxaOpenId'];
+        $queries = array_diff_key($this->request->getQueries(), array_flip($removeKeys));
+        $newUrl = $this->request->getUrlFor($this->request->getBaseUrl() . $this->request->getPathInfo());
+        if ($queries) {
+            $newUrl .= '?' . http_build_query($queries);
+        }
+
+        return $this->response->redirect($newUrl);
     }
 }
