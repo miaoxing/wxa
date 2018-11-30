@@ -33,6 +33,10 @@ class Plugin extends BasePlugin
 
     public function onBodyEnd()
     {
+        if ($this->app->isAdmin()) {
+            return;
+        }
+
         if (!wei()->share->getImage()) {
             $shareImage = wei()->setting('wechat.shareImage');
             $this->event->trigger('postImageLoad', [&$shareImage]);
