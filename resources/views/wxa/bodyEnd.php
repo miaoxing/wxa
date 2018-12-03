@@ -1,5 +1,5 @@
 <script>
-  require(['plugins/wechat/js/wx'], function (wx) {
+  window.require && require(['plugins/wechat/js/wx'], function (wx) {
     var share = <?= wei()->share->toJson() ?>;
     wx.miniProgram.postMessage({
       data: {
