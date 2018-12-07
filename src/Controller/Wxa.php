@@ -31,13 +31,19 @@ class Wxa extends BaseController
     public function updateUserAction($req)
     {
         $user = wei()->curUserV2->loginBy(['wechatOpenId' => $req['wechatOpenId']]);
+
+        if ($req['source'] === 'auth') {
+            $user->isValid = true;
+            $user->regTime = date('Y-m-d H:i:s');
+        }
+
         $user->save([
-            'nickName' => $req['userInfo']['nickName'],
-            'headImg' => $req['userInfo']['avatarUrl'],
-            'gender' => $req['userInfo']['gender'],
-            'province' => $req['userInfo']['province'],
-            'city' => $req['userInfo']['city'],
-            'country' => $req['userInfo']['country'],
+            'nickName' => $req['nickName'],
+            'headImg' => $req['avatarUrl'],
+            'gender' => $req['gender'],
+            'province' => $req['province'],
+            'city' => $req['city'],
+            'country' => $req['country'],
         ]);
         return $this->suc();
     }
