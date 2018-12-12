@@ -30,6 +30,11 @@ class Wxa extends BaseController
 
     public function updateUserAction($req)
     {
+        if (!$req['wechatOpenId']) {
+            $this->logger->info('Invalid data', $this->request->getParameterReference('post'));
+            return $this->err('error');
+        }
+
         $user = wei()->curUserV2->loginBy(['wechatOpenId' => $req['wechatOpenId']]);
 
         if ($req['source'] === 'auth') {
