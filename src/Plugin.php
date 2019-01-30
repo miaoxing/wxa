@@ -45,6 +45,8 @@ class Plugin extends BasePlugin
 
         if ($this->app->getControllerAction() === 'users/login') {
             $reLaunchUrl = wei()->wxaUrl($this->request['next']);
+        } else {
+            $reLaunchUrl = '';
         }
 
         $this->display(compact('reLaunchUrl'));
