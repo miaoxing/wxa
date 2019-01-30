@@ -42,6 +42,11 @@ class Plugin extends BasePlugin
             $this->event->trigger('postImageLoad', [&$shareImage]);
             wei()->share->setImage($shareImage);
         }
-        $this->display();
+
+        if ($this->app->getControllerAction() === 'users/login') {
+            $reLaunchUrl = wei()->wxaUrl($this->request['next']);
+        }
+
+        $this->display(compact('reLaunchUrl'));
     }
 }
