@@ -26,7 +26,7 @@ class Plugin extends BasePlugin
             'type' => 'wxaPay',
             'name' => '微信支付',
             'displayName' => '微信支付-小程序',
-            'image' => '/assets/images/payments/v2/wechat.png',
+            'image' => '/plugins/payment/images/wechat.png',
             'class' => WxaPay::class,
         ];
     }
