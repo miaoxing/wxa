@@ -1,8 +1,8 @@
 {
-  "name": "miaoxing/wxa",
-  "description": "Miaoxing Wxa Plugin",
+  "name": "miaoxing/wechat-mp",
+  "description": "Miaoxing WeChat Mini Program Plugin",
   "keywords": [
-    "miaoxing", "wxa"
+    "miaoxing", "wechat", "mini program"
   ],
   "license": "MIT",
   "require": {
