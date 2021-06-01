@@ -1,13 +1,13 @@
 <?php
 
-namespace Miaoxing\Wxa;
+namespace Miaoxing\WechatMp;
 
 use Miaoxing\Plugin\BasePlugin;
 use Miaoxing\Wxa\Middleware\Auth;
 use Miaoxing\Wxa\Payment\WxaPay;
 use Wei\BaseController;
 
-class Plugin extends BasePlugin
+class WechatMpPlugin extends BasePlugin
 {
     /**
      * {@inheritdoc}

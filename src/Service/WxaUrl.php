@@ -1,6 +1,6 @@
 <?php
 
-namespace Miaoxing\Wxa\Service;
+namespace Miaoxing\WechatMp\Service;
 
 use Miaoxing\Plugin\BaseService;
 use Wei\Url;

@@ -13,12 +13,12 @@
   },
   "autoload": {
     "psr-4": {
-      "Miaoxing\\Wxa\\": "src"
+      "Miaoxing\\WechatMp\\": "src"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "MiaoxingTest\\Wxa\\": "tests"
+      "MiaoxingTest\\WechatMp\\": "tests"
     }
   },
   "minimum-stability": "dev",
