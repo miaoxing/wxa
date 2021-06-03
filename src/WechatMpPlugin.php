@@ -39,25 +39,4 @@ class WechatMpPlugin extends BasePlugin
             'class' => WxaPay::class,
         ];
     }
-
-    public function onBodyEnd()
-    {
-        if ($this->app->isAdmin()) {
-            return;
-        }
-
-        if (!wei()->share->getImage()) {
-            $shareImage = wei()->setting('wechat.shareImage');
-            $this->event->trigger('postImageLoad', [&$shareImage]);
-            wei()->share->setImage($shareImage);
-        }
-
-        if ($this->app->getControllerAction() === 'users/login') {
-            $reLaunchUrl = wei()->wxaUrl($this->request['next']);
-        } else {
-            $reLaunchUrl = '';
-        }
-
-        $this->display(compact('reLaunchUrl'));
-    }
 }
