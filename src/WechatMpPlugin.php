@@ -14,6 +14,15 @@ class WechatMpPlugin extends BasePlugin
      */
     protected $name = '微信小程序';
 
+    public function onAdminNavGetNavs(&$navs, &$categories, &$subCategories)
+    {
+        $subCategories[] = [
+            'parentId' => 'setting',
+            'url' => 'admin/wechat-mp/account',
+            'name' => '小程序设置',
+        ];
+    }
+
     public function onPreControllerInit(BaseController $controller)
     {
         $controller->middleware(Auth::class);
