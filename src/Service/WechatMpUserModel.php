@@ -6,7 +6,6 @@ use Miaoxing\Plugin\BaseModel;
 use Miaoxing\Plugin\Model\HasAppIdTrait;
 use Miaoxing\Plugin\Model\ModelTrait;
 use Miaoxing\User\Service\UserModel;
-use Miaoxing\Wechat\Metadata\WechatUserTrait;
 use Miaoxing\WechatMp\Metadata\WechatMpUserTrait;
 
 /**
@@ -18,7 +17,7 @@ class WechatMpUserModel extends BaseModel
     use HasAppIdTrait;
     use WechatMpUserTrait;
 
-    public function user()
+    public function user(): UserModel
     {
         return $this->belongsTo(UserModel::class);
     }
