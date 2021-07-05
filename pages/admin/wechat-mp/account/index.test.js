@@ -1,4 +1,3 @@
-import React from 'react';
 import {MemoryRouter} from 'react-router';
 import $, {Ret} from 'miaoxing';
 import Index from './index';

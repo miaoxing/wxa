@@ -1,4 +1,3 @@
-import React from 'react';
 import {Page, PageActions} from '@mxjs/a-page';
 import {Form, FormAction, FormItem} from '@mxjs/a-form';
 
