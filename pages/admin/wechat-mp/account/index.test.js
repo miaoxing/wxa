@@ -27,8 +27,7 @@ describe('admin/wechat-mp/account', () => {
 
     $.http = jest.fn()
       .mockImplementationOnce(() => promise.resolve({
-        ret: Ret.new({
-          code: 0,
+        ret: Ret.suc({
           data: {
             applicationId: 'appId',
             applicationSecret: 'appSecret',
@@ -37,9 +36,7 @@ describe('admin/wechat-mp/account', () => {
       }))
       // 提交
       .mockImplementationOnce(() => promise2.resolve({
-        ret: Ret.new({
-          code: 0,
-        }),
+        ret: Ret.suc(),
       }));
 
     const {getByLabelText, getByText} = render(<MemoryRouter>
